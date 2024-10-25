@@ -9,6 +9,7 @@ export default [
       methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
       allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
       credentials: true,
+      keepHeaderOnError: true,
     },
   },
   'strapi::poweredBy',

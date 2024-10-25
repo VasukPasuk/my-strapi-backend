@@ -48,17 +48,13 @@ export interface OrderItemDto {
 
 export default factories.createCoreController('api::order.order', ({strapi}) => ({
   async create(ctx: StrapiRequestContext) {
-    console.log(ctx)
     try {
       const {data} = ctx.request.body;
-      console.log(data)
-      // Validate required fields
       if (!data || !data.items || !Array.isArray(data.items)) {
         return ctx.badRequest('Invalid order data');
       }
 
       const result = await strapi.db.transaction(async ({trx}) => {
-        // Create the main order with transaction
         const order = await strapi.entityService.create('api::order.order', {
           data: {
             department_adress: data.department_adress,
@@ -82,8 +78,6 @@ export default factories.createCoreController('api::order.order', ({strapi}) => 
           }, populate: ['items']
         }); // Pass transaction explicitly
 
-        console.log(order)
-
         // Create order items within the same transaction
         const orderItemsPromises = data.items.map(item =>
           strapi.entityService.create('api::order-item.order-item', {
@@ -102,7 +96,6 @@ export default factories.createCoreController('api::order.order', ({strapi}) => 
 
         // Wait for all order items to be created
         const orderItems = await Promise.all(orderItemsPromises);
-        console.log(orderItems)
         // Return the complete order with items
         return {
           order: {
