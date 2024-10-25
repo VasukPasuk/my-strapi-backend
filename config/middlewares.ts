@@ -5,11 +5,11 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: [process.env.CLIENT_URL], // Your frontend URL
-      methods: '*',
-      headers: '*',
+      origin: [process.env.CLIENT_URL], // Replace with your frontend URL
+      methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+      allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
       credentials: true,
-    }
+    },
   },
   'strapi::poweredBy',
   'strapi::query',

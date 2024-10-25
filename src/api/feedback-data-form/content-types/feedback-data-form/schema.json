@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedback_data_forms",
+  "info": {
+    "singularName": "feedback-data-form",
+    "pluralName": "feedback-data-forms",
+    "displayName": "Дані форми"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "surname": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_tags",
+  "info": {
+    "singularName": "news-tag",
+    "pluralName": "news-tags",
+    "displayName": "Теги Новин",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::new.new",
+      "mappedBy": "tag"
+    }
+  }
+}

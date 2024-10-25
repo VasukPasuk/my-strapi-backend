@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nominal_partners",
+  "info": {
+    "singularName": "nominal-partner",
+    "pluralName": "nominal-partners",
+    "displayName": "Партнер на головну сторінку"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
